@@ -13,6 +13,7 @@ int main()
 {
   char buffer[1024], input, curchar;
   int i = 0, count[26];
+  int spaces = 0;
 
   // request and read in the string from the user
   printf("Enter text for analysis: ");
@@ -33,6 +34,7 @@ int main()
   for (i = 0; i < strlen(buffer); i++) {
     curchar = toupper(buffer[i]);
     if (curchar >= 65 && curchar <= 90) count[curchar - 65]++;
+    if (curchar == ' ') spaces++;
   }
 
   // Create the letter analysis table
@@ -44,6 +46,8 @@ int main()
                                count[i],
                                (((float) count[i]) / strlen(buffer)) * 100);
   }
+  printf("\nTotal spaces: %d\n", spaces);
+
 
   // Find the max and min occuring character in the string, in particular the
   // position in the count array of each character
