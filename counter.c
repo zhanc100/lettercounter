@@ -9,15 +9,17 @@
 #include <string.h>
 #include <ctype.h>
 
+#define BUFFER_SIZE 1024
+
 int main()
 {
-  char buffer[1024], input, curchar;
+  char buffer[BUFFER_SIZE], input, curchar;
   int i = 0, count[26];
   int spaces = 0;
 
   // request and read in the string from the user
   printf("Enter text for analysis: ");
-  while ( (input = getchar()) != '\n' ) {
+  while ( ((input = getchar()) != '\n') && (i < (BUFFER_SIZE - 1))) {
     buffer[i++] = input;
   }
   buffer[i] = '\0';
