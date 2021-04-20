@@ -21,6 +21,7 @@ int main()
   char buffer[BUFFER_SIZE], input, curchar;
   int i = 0, count[COUNT_SIZE];
   int other = 0;
+  int spaces = 0;
 
 
 
@@ -43,7 +44,7 @@ int main()
   for (i = 0; i < strlen(buffer); i++) {
     curchar = toupper(buffer[i]);
     if (curchar >= 65 && curchar <= 90) count[curchar - 65]++;
-
+    if (curchar == ' ') spaces++;
     else other++;
 
 
@@ -58,7 +59,7 @@ int main()
                                count[i],
                                (((float) count[i]) / strlen(buffer)) * 100);
   }
-  printf("\nTotal spaces: %d\n", other);
+  printf("\nTotal spaces: %d\n", spaces);
 
 
   // Find the max and min occuring character in the string, in particular the
